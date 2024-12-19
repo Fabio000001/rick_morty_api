@@ -20,11 +20,11 @@ function App() {
       <header className="App-header">
         <h1 className='title'>Rick & Morty</h1>
         {characters ? (
-          <Characters characters={characters} />
+          <Characters characters={characters} setCharacters={setCharacters} />
         ) : (
           <>
             <img src={imageRickMortySonrisa} alt='Rick & Morty' className='img-home'></img>
-            <button onClick={reqApi} className='btn-search'>Buscar Personaje</button>
+            <button onClick={reqApi} className='btn-search'>Search Character</button>
           </>
         )}
       </header>
