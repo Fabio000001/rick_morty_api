@@ -1,19 +1,20 @@
-import logo from './logo.svg';
 import imageRickMortySonrisa from './img/rick-morty.png'
 import './App.css';
 import { useState } from 'react';
+import { useFetch } from './hooks/useFetch';
 import Characters from './components/Characters';
 
 function App() {
   const [characters, setCharacters] = useState(null);
 
-  const reqApi = async () => {
-    const api = await fetch('https://rickandmortyapi.com/api/character');
-    const characterApi = await api.json();
-    setCharacters(characterApi.results);
+  const reqApi = () => {
+    setCharacters(data.results);
   }
-
   console.log(characters);
+
+  const { data, loading, error } = useFetch("https://rickandmortyapi.com/api/character");
+  if (loading) return <div>Cargando...</div>
+  if (error) return <div>Error</div>
 
   return (
     <div className="App">
