@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 function Blog() {
     const { data, loading, error } = useFetch("https://rickandmortyapi.com/api/character");
 
-    if (loading) return <div>Cargando...</div>
-    if (error) return <div>Error</div>
+    if (loading) return (<h1>Buscando la dimensión adecuada...</h1>);
+    if (error) return (<h1>La pistola de portales no funciona...</h1>);
 
     return (
         <>
