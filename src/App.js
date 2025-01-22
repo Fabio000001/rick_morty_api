@@ -3,6 +3,8 @@ import './App.css';
 import { useState } from 'react';
 import { useFetch } from './hooks/useFetch';
 import Characters from './components/Characters';
+import Navbar from './components/Navbar';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   const [characters, setCharacters] = useState(null);
@@ -19,7 +21,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1 className='title'>Rick & Morty</h1>
+        <Navbar />
+        <h1>App</h1>
+
+        {/* <h1 className='title'>Rick & Morty</h1>
         {characters ? (
           <Characters characters={characters} setCharacters={setCharacters} />
         ) : (
@@ -27,7 +32,7 @@ function App() {
             <img src={imageRickMortySonrisa} alt='Rick & Morty' className='img-home'></img>
             <button onClick={reqApi} className='btn-search'>Search Character</button>
           </>
-        )}
+        )} */}
       </header>
     </div>
   );
