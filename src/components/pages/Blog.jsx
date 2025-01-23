@@ -8,8 +8,6 @@ function Blog() {
 
     const handleChange = (e) => {
         setSearchParams({ [e.target.name]: e.target.value });
-
-        data.results.filter(item => item.name.includes(e.target.value));
     };
 
     if (loading) return (<h1>Buscando la dimensión adecuada...</h1>);
@@ -21,11 +19,12 @@ function Blog() {
             <input type="text" name="filter" onChange={handleChange} className="form-control my-3" alt='Buscador' value={searchParams.get("filter") || ""}></input>
             <ul className="list-group">
                 {
-                    data.results.map(item => {
-                        return (
-                            <Link key={item.id} to={`/blog/${item.id}`}>{item.name}</Link>
-                        );
-                    })
+                    data.results.filter(item => item.name.includes(searchParams.get("filter") || ""))
+                        .map(item => {
+                            return (
+                                <Link key={item.id} to={`/blog/${item.id}`}>{item.name}</Link>
+                            );
+                        })
                 }
             </ul>
         </>
